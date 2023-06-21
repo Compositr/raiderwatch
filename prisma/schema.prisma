@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    String   @id
+  seen  DateTime
+  raids Raid[]
+
+  @@index([seen])
+  @@index([id], type: Hash)
+}
+
+model Guild {
+  id    String   @id
+  seen  DateTime
+  raids Raid[]
+
+  @@index([seen])
+  @@index([id], type: Hash)
+}
+
+model Raid {
+  id        String   @id @default(cuid())
+  guildId   String
+  timestamp DateTime
+  guild     Guild    @relation(fields: [guildId], references: [id])
+  raiders   User[]
+
+  @@index([guildId], type: Hash)
+  @@index([timestamp])
+}
