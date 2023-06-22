@@ -14,7 +14,7 @@ export default async function LookupPage() {
           database.
         </p>
       </div>
-      <div className="w-fit">
+      <div className="w-full md:w-fit">
         <div className="mt-4">
           <RaiderLookup />
         </div>

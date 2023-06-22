@@ -44,12 +44,11 @@ export default function RaiderLookup() {
 
             router.push(`/lookup/${id}`)
           }}
+          className="w-full md:w-fit"
         >
           Check
         </Button>
       </div>
-
-      <div className="mt-8"></div>
     </div>
   )
 }
