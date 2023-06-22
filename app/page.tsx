@@ -1,6 +1,8 @@
 import { Suspense } from "react"
 
 import RaidersText from "@/components/stats/RaidersText"
+import Link from "next/link"
+import { buttonVariants } from "@/components/ui/button"
 
 export default async function IndexPage() {
   return (
@@ -15,6 +17,15 @@ export default async function IndexPage() {
           </Suspense>{" "}
           raiders scraped and counting!
         </p>
+      </div>
+      <div className="flex gap-4">
+        <Link
+          href="/lookup"
+          rel="noreferrer"
+          className={buttonVariants()}
+        >
+          Lookup
+        </Link>
       </div>
     </section>
   )
