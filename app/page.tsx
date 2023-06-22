@@ -1,4 +1,8 @@
-export default function IndexPage() {
+import { Suspense } from "react"
+
+import RaidersText from "@/components/stats/RaidersText"
+
+export default async function IndexPage() {
   return (
     <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
       <div className="flex max-w-[980px] flex-col items-start gap-2">
@@ -6,10 +10,11 @@ export default function IndexPage() {
           Discord Raider Watch
         </h1>
         <p className="max-w-[700px] text-lg text-muted-foreground">
-          x million raiders scraped and counting!
+          <Suspense fallback={<span>Millions of</span>}>
+            <RaidersText />
+          </Suspense>{" "}
+          raiders scraped and counting!
         </p>
-      </div>
-      <div className="flex gap-4">
       </div>
     </section>
   )
