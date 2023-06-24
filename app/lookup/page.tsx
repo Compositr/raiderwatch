@@ -1,5 +1,10 @@
 import Link from "@/components/ui/link"
 import RaiderLookup from "@/components/lookup/RaiderLookup"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Lookup | Raider Watch",
+}
 
 export default async function LookupPage() {
   return (

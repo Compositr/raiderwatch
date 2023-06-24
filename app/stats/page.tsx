@@ -3,6 +3,12 @@ import RaidersText from "@/components/stats/RaidersText"
 import RaidsText from "@/components/stats/RaidsText"
 import ServersText from "@/components/stats/ServersText"
 import StatCard from "@/components/stats/StatCard"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Statistics | Raider Watch",
+  description: "Interesting stats and numbers",
+}
 
 export default async function StatsPage() {
   return (
