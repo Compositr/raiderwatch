@@ -1,9 +1,11 @@
-import CreditsCard from "@/components/credits/CreditsCard"
 import { Metadata } from "next"
 
-export const metadata: Metadata ={
+import CreditsCard from "@/components/credits/CreditsCard"
+
+export const metadata: Metadata = {
   title: "Credits | Raider Watch",
-  description: "Thanks to all the following awesome people for making this website possible!",
+  description:
+    "Thanks to all the following awesome people for making this website possible!",
 }
 
 export default function CreditsPage() {
