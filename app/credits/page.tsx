@@ -1,4 +1,10 @@
 import CreditsCard from "@/components/credits/CreditsCard"
+import { Metadata } from "next"
+
+export const metadata: Metadata ={
+  title: "Credits | Raider Watch",
+  description: "Thanks to all the following awesome people for making this website possible!",
+}
 
 export default function CreditsPage() {
   return (

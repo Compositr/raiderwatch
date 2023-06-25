@@ -1,3 +1,5 @@
+import { Metadata } from "next"
+
 import { convertSnowflakeToDate } from "@/lib/discord"
 import prisma from "@/lib/prisma"
 import { snowflake } from "@/lib/zod/user"
@@ -9,6 +11,39 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string }
+}): Promise<Metadata> {
+  const zID = snowflake.safeParse(params.id)
+
+  if (!zID.success)
+    return {
+      title: "Lookup | Raider Watch",
+      description: "Invalid user ID",
+    }
+
+  const id = zID.data
+
+  // Replaced discord api call with phish.gg api call
+  // thanks bun
+  const discord = await fetch(`https://lookup.phish.gg/user/${id}`, {
+    next: {
+      revalidate: 10,
+    },
+  }).then((res) => res.json())
+
+  return {
+    title: "Lookup | Raider Watch",
+    description: `Lookup for ${
+      discord.discriminator === "0"
+        ? discord.username
+        : `${discord.username}#${discord.discriminator}`
+    }`,
+  }
+}
 
 export default async function LookupResultPage({
   params,
