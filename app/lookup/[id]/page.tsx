@@ -1,5 +1,5 @@
-import prisma from "@/lib/prisma"
 import { convertSnowflakeToDate } from "@/lib/discord"
+import prisma from "@/lib/prisma"
 import { snowflake } from "@/lib/zod/user"
 import { Badge } from "@/components/ui/badge"
 import {
@@ -22,16 +22,15 @@ export default async function LookupResultPage({
   const user = await prisma.user.findUnique({
     where: { id },
     include: {
-      raids:true
+      raids: true,
     },
   })
 
   const created = convertSnowflakeToDate(id)
 
-  const discord = await fetch(`https://discord.com/api/v9/users/${id}`, {
-    headers: {
-      Authorization: `Bot ${process.env.BOT_TOKEN}`,
-    },
+  // Replaced discord api call with phish.gg api call
+  // thanks bun
+  const discord = await fetch(`https://lookup.phish.gg/user/${id}`, {
     next: {
       revalidate: 10,
     },
