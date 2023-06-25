@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma"
-import { convertSnowflakeToDate } from "@/lib/utils"
+import { convertSnowflakeToDate } from "@/lib/discord"
 import { snowflake } from "@/lib/zod/user"
 import { Badge } from "@/components/ui/badge"
 import {
