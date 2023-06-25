@@ -23,6 +23,14 @@ export default function CreditsPage() {
           avatarFallback="BL"
           message="For providing access to the Blacklister API"
         />
+        <CreditsCard
+          name="Phish.gg"
+          linkHref="https://phish.gg"
+          linkText="phish.gg"
+          avatar="/credits/phishgg.webp"
+          avatarFallback="PS"
+          message="For providing access to their user lookup API"
+        />
       </section>
     </>
   )
