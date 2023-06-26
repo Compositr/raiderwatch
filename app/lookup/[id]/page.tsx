@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { notFound } from "next/navigation"
 
 import { convertSnowflakeToDate } from "@/lib/discord"
 import prisma from "@/lib/prisma"
@@ -70,6 +71,9 @@ export default async function LookupResultPage({
       revalidate: 10,
     },
   }).then((res) => res.json())
+
+  // 10013 is the discord code for user not found
+  if (discord.code === 10013) notFound()
 
   const blacklister = await fetch(`https://api.blacklister.xyz/${id}`, {
     headers: {
