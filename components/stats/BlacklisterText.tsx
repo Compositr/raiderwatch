@@ -3,6 +3,9 @@ export default async function BlacklisterText() {
     headers: {
       Authorization: process.env.BLACKLISTER!,
     },
+    next: {
+      revalidate: 60,
+    },
   }).then((res) => res.json())
   return <span>{stats.users.toLocaleString()}</span>
 }
