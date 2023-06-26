@@ -6,7 +6,7 @@ import StatCard from "@/components/stats/StatCard"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Statistics | Raider Watch",
+  title: "Statistics",
   description: "Interesting stats and numbers",
 }
 

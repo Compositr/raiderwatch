@@ -3,7 +3,7 @@ import RaiderLookup from "@/components/lookup/RaiderLookup"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Lookup | Raider Watch",
+  title: "Lookup",
 }
 
 export default async function LookupPage() {

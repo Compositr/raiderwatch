@@ -21,7 +21,7 @@ export async function generateMetadata({
 
   if (!zID.success)
     return {
-      title: "Lookup | Raider Watch",
+      title: "Lookup",
       description: "Invalid user ID",
     }
 
