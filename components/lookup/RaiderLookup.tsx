@@ -1,11 +1,11 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 import { Input } from "@/components/ui/input"
 
 import { Button } from "../ui/button"
-import { useRouter } from "next/navigation"
 
 export default function RaiderLookup() {
   const router = useRouter()
@@ -14,7 +14,14 @@ export default function RaiderLookup() {
   const [valid, setIsValid] = useState(true)
 
   return (
-    <div>
+    <form
+      onSubmit={async (e) => {
+        e.preventDefault()
+        if (!/^[0-9]{7,}$/.test(id)) return setIsValid(false)
+
+        router.push(`/lookup/${id}`)
+      }}
+    >
       <label htmlFor="id-input" className="text-sm font-bold">
         Discord User ID{" "}
         {valid ? null : (
@@ -36,19 +43,10 @@ export default function RaiderLookup() {
       />
 
       <div className="mt-2">
-        <Button
-          type="submit"
-          variant={"default"}
-          onClick={async () => {
-            if (!/^[0-9]{7,}$/.test(id)) return setIsValid(false)
-
-            router.push(`/lookup/${id}`)
-          }}
-          className="w-full md:w-fit"
-        >
+        <Button type="submit" variant={"default"} className="w-full md:w-fit">
           Check
         </Button>
       </div>
-    </div>
+    </form>
   )
 }
