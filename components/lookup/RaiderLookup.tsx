@@ -33,7 +33,7 @@ export default function RaiderLookup() {
         className={`mt-1 ${valid ? null : "border-destructive"}`}
         pattern="^[0-9]{7,}$"
         type="text"
-        placeholder="330539533546422272"
+        placeholder="578837371144110081"
         onChange={(e) => {
           setId(e.target.value)
           setIsValid(true)
