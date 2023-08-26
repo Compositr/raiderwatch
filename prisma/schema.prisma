@@ -8,12 +8,13 @@ datasource db {
 }
 
 model User {
-  id    String   @id
-  seen  DateTime
-  raids Raid[]
+  id            String   @id
+  seen          DateTime
+  username      String
+  discriminator Int
+  raids         Raid[]   @relation("RaidToUser")
 
   @@index([seen])
-  @@index([id], type: Hash)
 }
 
 model Guild {
@@ -22,7 +23,6 @@ model Guild {
   raids Raid[]
 
   @@index([seen])
-  @@index([id], type: Hash)
 }
 
 model Raid {
@@ -30,8 +30,12 @@ model Raid {
   guildId   String
   timestamp DateTime
   guild     Guild    @relation(fields: [guildId], references: [id])
-  raiders   User[]
+  raiders   User[]   @relation("RaidToUser")
 
-  @@index([guildId], type: Hash)
-  @@index([timestamp])
+  @@index([guildId])
+}
+
+model CollectorData {
+  id            Int    @id
+  lastMessageId String
 }
