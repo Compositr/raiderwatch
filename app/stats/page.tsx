@@ -1,14 +1,17 @@
 import { Metadata } from "next"
 
 import BlacklisterText from "@/components/stats/BlacklisterText"
+import PomeloCountText from "@/components/stats/PomeloCountText"
 import PomeloPercentText from "@/components/stats/PomeloPercentText"
+import PomeloRecentPercentText from "@/components/stats/PomeloRecentPercentText"
 import RaidersText from "@/components/stats/RaidersText"
 import RaidsText from "@/components/stats/RaidsText"
+import RecentRaidersText from "@/components/stats/RecentRaidersText"
+import RecentRaidsText from "@/components/stats/RecentRaidsText"
 import ServersText from "@/components/stats/ServersText"
 import StatCard from "@/components/stats/StatCard"
 import StatSection from "@/components/stats/StatSection"
-import PomeloCountText from "@/components/stats/PomeloCountText"
-import PomeloRecentPercentText from "@/components/stats/PomeloRecentPercentText"
+import TitleSection from "@/components/stats/TitleSection"
 
 export const metadata: Metadata = {
   title: "Statistics",
@@ -17,7 +20,7 @@ export const metadata: Metadata = {
 
 export default async function StatsPage() {
   return (
-    <div>
+    <div className="mb-8">
       <section className="container grid gap-6 items-center pt-6 pb-8 md:py-10">
         <div className="flex max-w-[980px] flex-col items-start gap-2">
           <h1 className="text-3xl font-extrabold tracking-tighter leading-tight md:text-4xl">
@@ -47,16 +50,10 @@ export default async function StatsPage() {
           <ServersText />
         </StatCard>
       </StatSection>
-      <section className="container grid gap-6 items-center pt-6 pb-8 md:py-10">
-        <div className="flex max-w-[980px] flex-col items-start gap-2">
-          <h2 className="text-2xl font-extrabold tracking-tighter leading-tight md:text-3xl">
-            Pomelo Stats
-          </h2>
-          <p className="max-w-[700px] text-md text-muted-foreground">
-            Tracking Discord's Pomelo uptake by raiders and userbots
-          </p>
-        </div>
-      </section>
+      <TitleSection
+        title="Pomelo Stats"
+        subtitle="Tracking Discord's Pomelo uptake by raiders and userbots"
+      />
       <StatSection>
         <StatCard
           title="Pomelo Percentage"
@@ -67,8 +64,20 @@ export default async function StatsPage() {
         <StatCard title="Pomelo Users">
           <PomeloCountText />
         </StatCard>
-        <StatCard title="Recent Pomelo Percentage" footer="Percentage of Pomelo users in the past 30d">
+        <StatCard
+          title="Recent Pomelo Percentage"
+          footer="Percentage of Pomelo users in the past 30d"
+        >
           <PomeloRecentPercentText />
+        </StatCard>
+      </StatSection>
+      <TitleSection title="Recent Stats" subtitle="Stats from the past 30d" />
+      <StatSection>
+        <StatCard title="Users">
+          <RecentRaidersText />
+        </StatCard>
+        <StatCard title="Raids">
+          <RecentRaidsText />
         </StatCard>
       </StatSection>
     </div>
