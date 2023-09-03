@@ -12,6 +12,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import Link from "next/link"
 
 export async function generateMetadata({
   params,
@@ -87,9 +88,9 @@ export default async function LookupResultPage({
     .catch(() => null)
 
   return (
-    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+    <section className="container grid gap-6 items-center pt-6 pb-8 md:py-10">
       <div className="flex max-w-[980px] flex-col items-start gap-2">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
+        <h1 className="text-3xl font-extrabold tracking-tighter leading-tight md:text-4xl">
           Lookup for {id}
         </h1>
       </div>
@@ -120,10 +121,19 @@ export default async function LookupResultPage({
                     {created.toLocaleString()} (Local Time)
                   </time>
                 </div>
+                {user?.seen ? (
+                  <div>
+                    <span className="block font-bold">First Raid</span>
+                    <time dateTime={user?.seen.toISOString()}>
+                      {user?.seen.toLocaleString()} (Local Time)
+                    </time>
+                  </div>
+                ) : null}
                 <div>
                   <span className="block font-bold">Raids Participated</span>
                   <p>{user?.raids.length ?? 0}</p>
                 </div>
+
                 {blacklister?.blacklisted ? (
                   <>
                     <div>
@@ -148,7 +158,7 @@ export default async function LookupResultPage({
         </div>
       </div>
       <div className="flex max-w-[980px] flex-col items-start gap-2">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
+        <h1 className="text-3xl font-extrabold tracking-tighter leading-tight md:text-4xl">
           Raids Participated
         </h1>
       </div>
@@ -159,7 +169,7 @@ export default async function LookupResultPage({
               <CardHeader>
                 <CardTitle>Raid on {raid.guildId}</CardTitle>
                 <CardDescription>
-                  Raid ID <span className="font-mono">{raid.id}</span>
+                  Raid ID <Link target="_blank" href={`https://discord.com/channels/697474023914733575/833694540853936188/${raid.id}`}><span className="font-mono underline">{raid.id}</span></Link>
                 </CardDescription>
               </CardHeader>
               <CardContent>
