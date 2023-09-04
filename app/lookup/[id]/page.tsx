@@ -88,9 +88,9 @@ export default async function LookupResultPage({
     .catch(() => null)
 
   return (
-    <section className="container grid gap-6 items-center pt-6 pb-8 md:py-10">
+    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
       <div className="flex max-w-[980px] flex-col items-start gap-2">
-        <h1 className="text-3xl font-extrabold tracking-tighter leading-tight md:text-4xl">
+        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
           Lookup for {id}
         </h1>
       </div>
@@ -158,7 +158,7 @@ export default async function LookupResultPage({
         </div>
       </div>
       <div className="flex max-w-[980px] flex-col items-start gap-2">
-        <h1 className="text-3xl font-extrabold tracking-tighter leading-tight md:text-4xl">
+        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
           Raids Participated
         </h1>
       </div>
