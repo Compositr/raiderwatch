@@ -3,7 +3,7 @@ import { Prisma } from "@prisma/client"
 
 import prisma from "@/lib/prisma"
 
-export const cachedCount = async (extend?: Prisma.RaidWhereInput) =>
+export const cachedCount = (extend?: Prisma.RaidWhereInput) =>
   prisma.raid.count({
     where: {
       ...extend,

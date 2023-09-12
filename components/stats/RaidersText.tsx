@@ -1,9 +1,8 @@
-import { cache } from "react"
 import { Prisma } from "@prisma/client"
 
 import prisma from "@/lib/prisma"
 
-export const cachedCount = async (extend?: Prisma.UserWhereInput) =>
+export const cachedCount = (extend?: Prisma.UserWhereInput) =>
   prisma.user.count({
     where: {
       ...extend,

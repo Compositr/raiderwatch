@@ -2,7 +2,7 @@ import { cache } from "react"
 
 import prisma from "@/lib/prisma"
 
-const cachedCount = async () =>
+const cachedCount = () =>
   prisma.guild.count({
     cacheStrategy: {
       ttl: 300,
