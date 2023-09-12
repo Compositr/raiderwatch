@@ -15,6 +15,7 @@
     "postinstall": "prisma generate --accelerate"
   },
   "dependencies": {
+    "@marsidev/react-turnstile": "^0.3.1",
     "@prisma/client": "^5.2.0",
     "@prisma/extension-accelerate": "^0.6.2",
     "@radix-ui/react-avatar": "^1.0.3",
