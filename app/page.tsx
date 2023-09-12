@@ -1,8 +1,8 @@
 import { Suspense } from "react"
-
-import RaidersText from "@/components/stats/RaidersText"
 import Link from "next/link"
-import { buttonVariants } from "@/components/ui/button"
+
+import { Button } from "@/components/ui/button"
+import RaidersText from "@/components/stats/RaidersText"
 
 export default async function IndexPage() {
   return (
@@ -19,12 +19,8 @@ export default async function IndexPage() {
         </p>
       </div>
       <div className="flex gap-4">
-        <Link
-          href="/lookup"
-          rel="noreferrer"
-          className={buttonVariants()}
-        >
-          Lookup
+        <Link href="/" rel="noreferrer" aria-disabled>
+          <Button disabled>Lookup (soon&trade;)</Button>
         </Link>
       </div>
     </section>
