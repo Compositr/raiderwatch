@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma"
-import { truncateDateToDay } from "@/lib/utils"
+import { truncateDateToDay, truncated30d } from "@/lib/utils"
 
 import LineChart from "./chartjs/Line"
 
@@ -7,7 +7,7 @@ export default async function Raids30dLine() {
   const data = await prisma.raid.findMany({
     where: {
       timestamp: {
-        gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
+        gte: truncated30d(),
       },
     },
 
