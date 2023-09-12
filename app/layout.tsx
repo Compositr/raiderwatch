@@ -6,6 +6,7 @@ import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: {
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
               <div className="flex-1">{children}</div>
+              <Analytics/>
             </div>
           </ThemeProvider>
         </body>
