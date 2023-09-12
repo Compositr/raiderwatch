@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma"
+import { truncateDateToDay } from "@/lib/utils"
 
 import LineChart from "./chartjs/Line"
-import { truncateDateToDay } from "@/lib/utils"
 
 export default async function Raids30dLine() {
   const data = await prisma.raid.findMany({
@@ -9,6 +9,11 @@ export default async function Raids30dLine() {
       timestamp: {
         gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
       },
+    },
+
+    cacheStrategy: {
+      swr: 4 * 60 * 60 * 1000,
+      ttl: 1 * 60 * 60 * 1000,
     },
   })
 
@@ -45,12 +50,11 @@ export default async function Raids30dLine() {
           datasets: [
             {
               data: y,
-              label: "Raids"
+              label: "Raids",
             },
           ],
           labels: x,
         }}
-
         title="Raids per Day"
       />
     </div>

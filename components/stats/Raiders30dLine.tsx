@@ -10,6 +10,11 @@ export default async function Raiders30dLine() {
         gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
       },
     },
+
+    cacheStrategy: {
+      swr: 4 * 60 * 60 * 1000,
+      ttl: 1 * 60 * 60 * 1000,
+    },
   })
 
   const groupedRaids = data.reduce((acc: Record<string, number>, user) => {
@@ -51,7 +56,6 @@ export default async function Raiders30dLine() {
           labels: x,
         }}
         title="Unique Raiders per Day"
-
       />
     </div>
   )
