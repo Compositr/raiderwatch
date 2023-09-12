@@ -4,7 +4,9 @@ import BlacklisterText from "@/components/stats/BlacklisterText"
 import PomeloCountText from "@/components/stats/PomeloCountText"
 import PomeloPercentText from "@/components/stats/PomeloPercentText"
 import PomeloRecentPercentText from "@/components/stats/PomeloRecentPercentText"
+import Raiders30dLine from "@/components/stats/Raiders30dLine"
 import RaidersText from "@/components/stats/RaidersText"
+import Raids30dLine from "@/components/stats/Raids30dLine"
 import RaidsText from "@/components/stats/RaidsText"
 import RecentRaidersText from "@/components/stats/RecentRaidersText"
 import RecentRaidsText from "@/components/stats/RecentRaidsText"
@@ -80,6 +82,14 @@ export default async function StatsPage() {
           <RecentRaidsText />
         </StatCard>
       </StatSection>
+      <TitleSection
+        title="Charts"
+        subtitle="All charts show stats from the past 30d unless shown otherwise"
+      />
+      <div className="container mt-4 flex h-full flex-col flex-wrap gap-4 md:flex-row md:flex-nowrap">
+        <Raids30dLine />
+        <Raiders30dLine />
+      </div>
     </div>
   )
 }
