@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   description: "Interesting stats and numbers",
 }
 
+// Revalidate every minute
+export const revalidate = 60
+
 export default async function StatsPage() {
   return (
     <div className="mb-8">
