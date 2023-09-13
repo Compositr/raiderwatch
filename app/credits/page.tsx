@@ -23,6 +23,14 @@ export default function CreditsPage() {
         </div>
       </section>
       <section className="container flex flex-col flex-wrap gap-4 md:flex-row">
+      <CreditsCard
+          name="Beemo"
+          linkHref="https://beemo.gg"
+          linkText="beemo.gg"
+          avatar="/credits/beemo.webp"
+          avatarFallback="BB"
+          message="The data that powers this whole thing."
+        />
         <CreditsCard
           name="Blacklister"
           linkHref="https://blacklister.xyz"
