@@ -19,7 +19,7 @@ export function truncated30d() {
 
 export function truncated1h() {
   const date = new Date()
-  date.setHours(date.getHours(), 0, 0, 0) // Set time to the start of the hour
-  date.setDate(date.getHours() - 1) // Subtract 1 hour
+  date.setUTCHours(date.getUTCHours(), 0, 0, 0) // Set time to the start of the hour
+  date.setUTCDate(date.getUTCHours() - 1) // Subtract 1 hour
   return date
 }
