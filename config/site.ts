@@ -2,8 +2,7 @@ export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
   name: "Raider Watch",
-  description:
-    "Scraped database of raiders from Beemo's logs",
+  description: "Scraped database of raiders from Beemo's logs",
   mainNav: [
     {
       title: "Home",
@@ -11,11 +10,15 @@ export const siteConfig = {
     },
     {
       title: "Stats",
-      href: "/stats"
+      href: "/stats",
+    },
+    {
+      title: "Live",
+      href: "/live",
     },
     {
       title: "Credits",
-      href: "/credits"
-    }
+      href: "/credits",
+    },
   ],
 }
